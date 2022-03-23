@@ -11,7 +11,7 @@ pip3 inst
 
 ### Process Design
 
-```bash
+```
 1. Build a mysql transactional database using AWS RDS:
     - Create tables for the transactional database:
         1.1_create_tables_mysql.sql

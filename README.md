@@ -13,9 +13,9 @@ pip3 inst
 
 ```bash
 1. Build a mysql transactional database using AWS RDS:
-    * Create tables for the transactional database:
+    - Create tables for the transactional database:
         1.1_create_tables_mysql.sql
-    * Load data into the transactional database:
+    - Load data into the transactional database:
         1.2_load_raw_data.sql
 2. Build a data warehouse in Redshift Cluster:
 	2.1 Create tables in the data warehouse

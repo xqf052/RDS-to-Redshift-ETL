@@ -2,11 +2,11 @@
 ### Project Description
 
 ```bash
-# 1. Install or update python to version 3.8
-# 2. cd to the directory where requirements.txt is located
-# 3. Optional: activate your virtualenv
-# 4. Run the following command to install required python packages
-pip3 inst
+The project is to create an ETL process to sync the data from a Mysql transactional database into
+a Redshift data warehouse. The data comes from an Brazilian E-commerce company called Olist.
+The Aws components involved in this project are RDS, Redshift, Glue, Lambda, Data Pipeline, Quicksight,
+etc. I use Star schema for dimensional modeling of the data warehouse. I use Dbeaver to connect both
+the RDS instance and the Redshift cluster.
 ```
 
 ### Process Design
@@ -17,22 +17,22 @@ pip3 inst
         1.1_create_tables_mysql.sql
     - Load data into the transactional database:
         1.2_load_raw_data.sql
-2. Build a data warehouse in Redshift Cluster:
-	2.1 Create tables in the data warehouse
+2. Build a data warehouse using AWS Redshift:
+	- Create schemas and tables in the data warehouse
 		2.1_create_tables_dwh.sql		
-3. Create data pipeline to copy RDS mysql data to S3:
-	3.1 Copy RDS mysql data to S3 for both historical and incremental data
+3. Use AWS data pipeline to copy data from the transactional database into S3:
+	- Copy both historical and incremental data into S3
 		3.1_data_pipeline.sql
-	3.2 make sure historical data only load once, and schedule incremental loading on  regular basis.
-4. Sync historical data in S3 with redshift Data warehouse
-	4.1 Populate delta tables(olist_delta, customers_delta, date_delta, orders_delta)
+	- For the incremental ETL, we can use data pipeline to schedule the process on a regular basis, such as once per month.
+4. Sync historical data in S3 with the Redshift data warehouse
+	- Populate delta tables in the data warehouse
 		4.1_populate_delta.sql
-	4.2 Populate dimension and fact tables (date_dim, orders_dim, customers_dim, orders_status_fact)
+	- Populate dimension and fact tables in the data warehouse
 		4.2_populate_dim_fact.sql
-
-5. Sync incremental data in S3 with redshift Data warehouse
-	5.1 Use glue job with python shell script to sync incremental data from S3.
+5. Sync incremental data in S3 with the Redshift Data warehouse
+	- Use AWS Glue Job with python shell script to sync incremental data.
 		5.1_load_incremental_data.py
-	5.2 Use lambda function to trigger the glue job to run on a regular basis.
-	5.2_trigger_gluejob.py
+	- Use a lambda function with an S3 event trigger to automatically run the glue job, so that the incremental ETL can be triggered on a regular basis.
+	    5.2_trigger_gluejob.py
+6. Connect the data warehouse with AWS Quicksight for data analytics and BI reporting.
 ```

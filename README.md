@@ -9,12 +9,16 @@ etc. I use Star schema for dimensional modeling of the data warehouse. I use Dbe
 the RDS instance and the Redshift cluster.
 
 The first step of the mechanism is to use Data Pipeline to establish connection with RDS Mysql database 
-and pull the transactional data as csv file formats, which can be saved in S3. Then I implement both 
+and pull the transactional data as csv file formats, which will be saved in S3. Then I implement both 
 initial ETL and incremental ETL to load the data from S3 into Redshift data warehouse. For the historical
 data, I write SQL queries to load them directly into the data warehouse. For the incremental data, I use 
-lambda function, event trigger and glue job with python shell script, which can automatically perfrom 
-ETL and load data on a regular basis.
+lambda function, event trigger and glue job with python shell script to automatically perfrom ETL and
+load data on a regular basis.
 ```
+
+### Data Warehouse Schema
+
+![star schema drawio](https://user-images.githubusercontent.com/31687491/159823722-d18caef9-cfaa-4a29-bcf6-32c7a221e6a2.png)
 
 ### Process Design
 

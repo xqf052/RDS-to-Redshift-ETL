@@ -18,7 +18,7 @@ load data on a regular basis.
 
 ### Data Warehouse Schema
 
-![star schema drawio](https://user-images.githubusercontent.com/31687491/159823722-d18caef9-cfaa-4a29-bcf6-32c7a221e6a2.png)
+![star schema drawio](https://user-images.githubusercontent.com/31687491/159823998-dae194f1-ed3f-425f-bace-d1a6b4838cd8.png)
 
 ### Process Design
 

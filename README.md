@@ -43,3 +43,5 @@ ETL and load data on a regular basis.
 	    5.2_trigger_gluejob.py
 6. Connect the data warehouse with AWS Quicksight for data analytics and BI reporting.
 ```
+
+### Project Architecture

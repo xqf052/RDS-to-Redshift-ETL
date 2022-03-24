@@ -35,7 +35,7 @@ load data on a regular basis.
 	- Copy both historical and incremental data into S3
 		3.1_data_pipeline.sql
 	- For the incremental ETL, we can use data pipeline to schedule the process on a regular basis, 
-      such as once per month.
+        such as once per month.
 4. Sync historical data in S3 with the Redshift data warehouse
 	- Populate delta tables in the data warehouse
 		4.1_populate_delta.sql
@@ -45,7 +45,7 @@ load data on a regular basis.
 	- Use AWS Glue Job with python shell script to sync incremental data.
 		5.1_load_incremental_data.py
 	- Use a lambda function with an S3 event trigger to automatically run the glue job, so that the 
-      incremental ETL can be triggered on a regular basis.
+        incremental ETL can be triggered on a regular basis.
 	    5.2_trigger_gluejob.py
 6. Connect the data warehouse with AWS Quicksight for data analytics and BI reporting.
 ```

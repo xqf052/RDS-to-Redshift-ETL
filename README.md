@@ -45,3 +45,5 @@ ETL and load data on a regular basis.
 ```
 
 ### Project Architecture
+
+![redshift_dwh drawio](https://user-images.githubusercontent.com/31687491/159818143-254960f5-8797-44cb-ace2-6aa715869a2d.png)

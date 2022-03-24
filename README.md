@@ -7,11 +7,18 @@ a Redshift data warehouse. The data comes from an Brazilian E-commerce company c
 The Aws components involved in this project are RDS, Redshift, Glue, Lambda, Data Pipeline, Quicksight,
 etc. I use Star schema for dimensional modeling of the data warehouse. I use Dbeaver to connect both
 the RDS instance and the Redshift cluster.
+
+The first step of the mechanism is to use Data Pipeline to establish connection with RDS Mysql database 
+and pull the transactional data as csv file formats, which can be saved in S3. Then I implement both 
+initial ETL and incremental ETL to load the data from S3 into Redshift data warehouse. For the historical
+data, I write SQL queries to load them directly into the data warehouse. For the incremental data, I use 
+lambda function, event trigger and glue job with python shell script, which can automatically perfrom 
+ETL and load data on a regular basis.
 ```
 
 ### Process Design
 
-```
+```bash
 1. Build a mysql transactional database using AWS RDS:
     - Create tables for the transactional database:
         1.1_create_tables_mysql.sql

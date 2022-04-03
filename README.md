@@ -1,5 +1,5 @@
 # ETL for syncing data from AWS RDS to Redshift
-### Project Description
+### Project Introduction
 
 ```bash
 The project is to create an ETL process to sync the data from a Mysql transactional database into
@@ -13,7 +13,7 @@ and pull the transactional data as csv file formats, which will be saved in S3. 
 initial ETL and incremental ETL to load the data from S3 into Redshift data warehouse. For the historical
 data, I write SQL queries to load them directly into the data warehouse. For the incremental data, I use 
 lambda function, event trigger and glue job with python shell script to automatically perfrom ETL and
-load data on a regular basis.
+load data on a periodic basis.
 ```
 
 ### Data Warehouse Schema
@@ -34,7 +34,7 @@ load data on a regular basis.
 3. Use AWS data pipeline to copy data from the transactional database into S3:
 	- Copy both historical and incremental data into S3
 		3.1_data_pipeline.sql
-	- For the incremental ETL, we can use data pipeline to schedule the process on a regular basis, 
+	- For the incremental ETL, we can use data pipeline to schedule the process on a periodic basis, 
         such as once per month.
 4. Sync historical data in S3 with the Redshift data warehouse
 	- Populate delta tables in the data warehouse
